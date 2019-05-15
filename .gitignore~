@@ -1,0 +1,57 @@
+# ipython checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+.DS_Store
+
+
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+*.pyc
+
+# Executables
+*.exe
+*.out
+*.app
+radpic
+
+# debug folders
+*.dSYM
+
+*.png
+
+
+*.zip
+out/
+*/*/out/
+*.mp4
+
+
+.ycm_extra_conf.py
+
+
+*.h5
+data/prodruns
+*.npz
