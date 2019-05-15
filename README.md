@@ -2,6 +2,11 @@
 
 This repository holds interactive python notebooks in relation to the "Exploring helical dynamos with machine learning techniques" article.
 
+## How to get started
+
+1) Download the helically-forced turbulence simulation dataset from zenodo.
+2) unpack it to the repository directory, you should now have `alpha2/RmXXXX` directories that store the various compressed (and averaged) simulation runs.
+
 
 
 ## Data 
