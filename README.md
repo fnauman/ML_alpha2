@@ -9,7 +9,7 @@
 
 (Click the Binder or Colab link to open the notebooks and work with them in the cloud.)
 
-This repository holds interactive python notebooks in relation to the "Exploring helical dynamos with machine learning" article.
+This repository holds interactive python notebooks in relation to the "Exploring helical dynamos with machine learning" article. We explore various model fits for forced magnetohydrodynamic turbulence to understand the origin of large scale magnetic fields, a question of importance in many astrophysical contexts.
 
 ## How to get started
 
@@ -36,21 +36,14 @@ list(mf15)
    'jym']  xy-averaged J_y field
 ```
 Each of the fields has dimension time x vertical coordinate.
+
 3) install external python packages by running `pip install -r requirements.txt`
 
 
 
 ## Data 
 
-### Data used for the paper
-
-Our complete data set is available from Zenodo. It consists of a set of helically forced turbulence simulations (256^3) with a varying magnetic Reynolds number (Rm).
-
-### Source for all 3D snapshots including xy-averaged data with the full init/config files
-https://sid.erda.dk/public/archives/0cf0c2b6d34e20da8971304b06d8f913/published-archive.html
-
-All the files in pencil/alpha2 correspond to the runs for alpha^2 reported here. The PENCIL code dumps 3D snapshot files for each processor separately so snapshot 5 for Rm = 500 can be accessed here (for proc60):
-pencil/alpha2/k10_R500_256_test_xyaver_alpha_eta/data/proc60/VAR5
+Data links are provided [here](download_data.ipynb)
 
 ## Summary of runs reported in the paper
 
