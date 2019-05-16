@@ -12,8 +12,17 @@ This repository holds interactive python notebooks in relation to the "Exploring
 
 ## Data 
 
+### Data used for the paper
+
 Our complete data set is available from Zenodo. It consists of a set of helically forced turbulence simulations (256^3) with a varying magnetic Reynolds number (Rm).
 
+### Source for all 3D snapshots including xy-averaged data with the full init/config files
+https://sid.erda.dk/public/archives/0cf0c2b6d34e20da8971304b06d8f913/published-archive.html
+
+All the files in pencil/alpha2 correspond to the runs for alpha^2 reported here. The PENCIL code dumps 3D snapshot files for each processor separately so snapshot 5 for Rm = 500 can be accessed here (for proc60):
+pencil/alpha2/k10_R500_256_test_xyaver_alpha_eta/data/proc60/VAR5
+
+## Summary of runs reported in the paper
 
  Name | Rm   | Rm_t   | t_res  | v_rms
  -----|------|--------|--------|-------|
