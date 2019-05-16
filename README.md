@@ -1,3 +1,7 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fnauman/ML_alpha2/master)
+
+Click the binder link to open the notebooks in binder and work with them in the cloud.
+
 # Exploring helical dynamos with machine learning
 
 This repository holds interactive python notebooks in relation to the "Exploring helical dynamos with machine learning" article.
