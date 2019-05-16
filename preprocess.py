@@ -22,6 +22,7 @@ from matplotlib.colors import ListedColormap
 
 def read_mf_norm(fname='mfields.npz'):
   # PENCIL data
+  # Normalize everything by urms = B_eq
   mf = np.load(fname)
   bxm = mf['bxm']/mf['uave']
   bym = mf['bym']/mf['uave']
@@ -36,33 +37,25 @@ def read_mf(fname='mfields.npz'):
   mf = np.load(fname)
   return mf['bxm'], mf['bym'], mf['jxm'], mf['jym'], mf['emfx'], mf['emfy']
 
-def read_mf2(fname='mfields.npz'):
-  # SNOOPY data
-  mf = np.load(fname)
-  return mf['mbx'], mf['mby'], mf['mjx'], mf['mjy'], mf['mex'], mf['mey']
-
 def ave_t(arr,tone=1000,ttwo=2000,verbose=None):
   if verbose:
-    print('t1: {}, t2: {}'.format(tone,ttwo))
+    print(f't1: {tone}, t2: {ttwo}')
   return np.mean(arr[tone:ttwo,:],axis=0)
 
 def ave_z(arr,zone=128,ztwo=-1,verbose=None):
   if verbose:
-    print('z1: {}, z2: {}'.format(zone,ztwo))
+    print(f'z1: {zone}, z2: {ztwo}')
   return np.mean(arr[:,zone:ztwo],axis=1)
 
-def gen_df_tave(fname='mfields.npz',t1=1000,t2=2000,verbose=None,name_conv=True):
+def gen_df_tave(fname='mfields.npz',t1=1000,t2=2000,verbose=None):
   '''
   name_conv: True refers to pencil code data: bxm,bym,jxm,jym,emfx,emfy
   '''
 
   if verbose:
-    print("Generating time averaged dataframe with t1: {} and t2: {}".format(t1,t2))
+    print(f"Generating time averaged dataframe with t1: {t1} and t2: {t2}")
   
-  if name_conv:
-    bxm,bym,jxm,jym,Exm,Eym = read_mf_norm(fname=fname)
-  else:
-    bxm,bym,jxm,jym,Exm,Eym = read_mf2(fname=fname)
+  bxm,bym,jxm,jym,Exm,Eym = read_mf_norm(fname=fname)
 
   return pd.DataFrame.from_dict({
         'Bx': ave_t(bxm,tone=t1,ttwo=t2),
@@ -73,18 +66,15 @@ def gen_df_tave(fname='mfields.npz',t1=1000,t2=2000,verbose=None,name_conv=True)
         'Ey': -1. * ave_t(Eym,tone=t1,ttwo=t2)        
         })
 
-def gen_df_zave(fname='mfields.npz',z1=128,z2=-1,verbose=True,name_conv=True):
+def gen_df_zave(fname='mfields.npz',z1=128,z2=-1,verbose=True):
   '''
   name_conv: True refers to pencil code data: bxm,bym,jxm,jym,emfx,emfy
   '''
 
   if verbose:
-    print("Generating z averaged dataframe with z1: {} and z2: {}".format(z1,z2))
+    print(f"Generating z averaged dataframe with z1: {z1} and z2: {z2}")
   
-  if name_conv:
-    bxm,bym,jxm,jym,Exm,Eym = read_mf_norm(fname=fname)
-  else:
-    bxm,bym,jxm,jym,Exm,Eym = read_mf2(fname=fname)
+  bxm,bym,jxm,jym,Exm,Eym = read_mf_norm(fname=fname)
 
   return pd.DataFrame.from_dict({
         'Bx': ave_z(bxm,zone=z1,ztwo=z2),
@@ -101,7 +91,6 @@ def gen_df_poly(df,deg=3,ignorej=True,verbose=True,dropone=True,feateng=True,kee
   # df_poly = gen_df_poly(df)
   from sklearn.preprocessing import PolynomialFeatures
   dum_data = df.copy()
-  # inplace=True means that now the data pd-dataframe does NOT have Ex,Ey
 
   # Feature Engineering in linear phase: E_x,E_y,B_x,B_y,J_x,J_y
   dum_data.drop(['Ex','Ey'],axis=1,inplace=True)
@@ -111,12 +100,6 @@ def gen_df_poly(df,deg=3,ignorej=True,verbose=True,dropone=True,feateng=True,kee
   p = PolynomialFeatures(degree=deg,include_bias=True).fit(dum_data)
   xpoly = p.fit_transform(dum_data)
   newdf = pd.DataFrame(xpoly, columns = p.get_feature_names(dum_data.columns))
-
-  #if verbose:
-  #  print("Feature names:",p.get_feature_names(dum_data.columns))
-  #  print("Feature array shape:",xpoly.shape)
-    # The key is to use p.get_feature_names for columns option below
-
 
   if keepE:
     newdf['Ex'] = df[['Ex']]
@@ -157,9 +140,7 @@ def scale_df(df):
   df_ss = scl.fit_transform(df_ss)
   return pd.DataFrame(df_ss,columns=df.columns),scl
 
-# Following functions added in Feb. 2019 for z-averaged temporal data
-# and for proper train-test splits + PCA
-def gen_df_zave_log(fname='mfields.npz',z1=128,z2=-1,verbose=True,name_conv=True):
+def gen_df_zave_log(fname='mfields.npz',z1=128,z2=-1,verbose=True):
   '''
   name_conv: True refers to pencil code data: bxm,bym,jxm,jym,emfx,emfy
   '''
@@ -167,10 +148,7 @@ def gen_df_zave_log(fname='mfields.npz',z1=128,z2=-1,verbose=True,name_conv=True
   if verbose:
     print("Generating z averaged dataframe with z1: {} and z2: {}".format(z1,z2))
   
-  if name_conv:
-    bxm,bym,jxm,jym,Exm,Eym = read_mf_norm(fname=fname)
-  else:
-    bxm,bym,jxm,jym,Exm,Eym = read_mf2(fname=fname)
+  bxm,bym,jxm,jym,Exm,Eym = read_mf_norm(fname=fname)
   
   return pd.DataFrame.from_dict({
         'Bx2l': np.log10(ave_z(bxm**2,zone=z1,ztwo=z2)),
@@ -255,20 +233,6 @@ def train_test_seq(X,y,test_size=0.2):
     y_train, y_test = y.iloc[:int(train_size*totsz)], y.iloc[int(train_size*totsz):]
     
     return X_train, X_test, y_train, y_test
-
-
-#def train_test_seq_np(X,y,test_size=0.2):
-#    '''
-#    Assume X,y are numpy arrays
-#    '''
-#    
-#    print(f"Test size: {test_size}")
-#    train_size = 1.0 - test_size
-#    totsz = X.shape[0]
-#    X_train, X_test = X[:int(train_size*totsz)], X.[int(train_size*totsz):]
-#    y_train, y_test = y[:int(train_size*totsz)], y.[int(train_size*totsz):]
-#    
-#    return X_train, X_test, y_train, y_test
 
 # Convenience routines for correlation plots (OLD but still work)
 def df_corr_plot(df,key_name=None,fname=None,tave=True,t1=1000,t2=2000,z1=128,z2=-1,scal=None,verbose=True,savfig=True,labs=None,nocolor=False):
