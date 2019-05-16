@@ -5,7 +5,9 @@
 [binder-badge]: https://mybinder.org/badge.svg
 [binder-url]: https://mybinder.org/v2/gh/fnauman/ML_alpha2/master
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
-[colab-url]: https://colab.research.google.com/github/fnauman/ML_alpha2/blob/master/vertical_profiles.ipynb
+[colab-url]: https://colab.research.google.com/github/fnauman/ML_alpha2/blob/master/
+
+<!--https://colab.research.google.com/github/fnauman/ML_alpha2/blob/master/vertical_profiles.ipynb -->
 
 (Click the Binder or Colab link to open the notebooks and work with them in the cloud.)
 
