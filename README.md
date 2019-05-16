@@ -15,7 +15,7 @@ This repository holds interactive python notebooks in relation to the "Exploring
 
 1) Download the helically-forced turbulence simulation dataset from the links provided in the notebooks. Within the notebook, one can download a xy averaged profiles with a command like this 
 ```
-!wget wget -O mfields_R15e3.npz  https://sid.erda.dk/public/archives/0cf0c2b6d34e20da8971304b06d8f913/pencil/alpha2/shock_k10_R15000_256_xyaver_alpha_eta/mfields.npz
+!wget -O mfields_R15e3.npz  https://sid.erda.dk/public/archives/0cf0c2b6d34e20da8971304b06d8f913/pencil/alpha2/shock_k10_R15000_256_xyaver_alpha_eta/mfields.npz
 ```
 2) Unpack it. For example, 
 ```
