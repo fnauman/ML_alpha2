@@ -1,5 +1,13 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fnauman/ML_alpha2/master)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fnauman/ML_alpha2/]
+[![Binder][binder-badge]][binder-url]
+[![Google Colab][colab-badge]][colab-url]
+
+[binder-badge]: https://mybinder.org/badge.svg
+[binder-url]: https://mybinder.org/v2/gh/fnauman/ML_alpha2/master
+[colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
+[colab-url]: https://colab.research.google.com/github/fnauman/ML_alpha2/blob/master/vertical_profiles.ipynb
+
+<!--- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fnauman/ML_alpha2/master)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fnauman/ML_alpha2/]--->
 
 Click the Binder or Colab link to open the notebooks in binder and work with them in the cloud.
 
