@@ -1,3 +1,4 @@
+# Exploring helical dynamos with machine learning
 [![Binder][binder-badge]][binder-url]
 [![Google Colab][colab-badge]][colab-url]
 
@@ -6,19 +7,34 @@
 [colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
 [colab-url]: https://colab.research.google.com/github/fnauman/ML_alpha2/blob/master/vertical_profiles.ipynb
 
-<!--- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fnauman/ML_alpha2/master)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fnauman/ML_alpha2/]--->
-
-Click the Binder or Colab link to open the notebooks in binder and work with them in the cloud.
-
-# Exploring helical dynamos with machine learning
+(Click the Binder or Colab link to open the notebooks work with them in the cloud.)
 
 This repository holds interactive python notebooks in relation to the "Exploring helical dynamos with machine learning" article.
 
 ## How to get started
 
-1) Download the helically-forced turbulence simulation dataset from zenodo.
-2) unpack it to the repository directory, you should now have `alpha2/RmXXXX` directories that store the various compressed (and averaged) simulation runs.
+1) Download the helically-forced turbulence simulation dataset from the links provided in the notebooks. Within the notebook, one can download a xy averaged profiles with a command like this 
+```
+!wget wget -O mfields_R15e3.npz  https://sid.erda.dk/public/archives/0cf0c2b6d34e20da8971304b06d8f913/pencil/alpha2/shock_k10_R15000_256_xyaver_alpha_eta/mfields.npz
+```
+2) Unpack it. For example, 
+```
+mf15 = np.load('mfields_R15e3.npz')
+list(mf15)
+# ['tres', Resistive time: 1/(kf^2 * eta) (divide tt by tres to get time array in Resistive times)
+   'Rm',   Turbulent magnetic Reynolds number: urms/(kf * eta)
+   'uave', RMS velocity: urms
+   'kf',   Forcing wavemode
+   'tt',   Time array (code units)
+   'bxm',  xy-averaged B_x field
+   'bym',  xy-averaged B_y field
+   'b2tot',xy-averaged B^2 TOTAL field
+   'u2tot',xy-averaged U^2 TOTAL field
+   'emfx', xy-averaged EMF_x field
+   'emfy', xy-averaged EMF_y field
+   'jxm',  xy-averaged J_x field
+   'jym']  xy-averaged J_y field
+```
 3) install external python packages by running `pip install -r requirements.txt`
 
 
