@@ -1,15 +1,6 @@
-# May 9th, 2019
 # Normalize EMF,J and B with B_eq
 # Introduced read_mf_norm that replaces read_mf everywhere
 
-# Feb. 24th, 2019
-# EMF -> -EMF
-# EMF is really E in pc: vxb
-
-# Several changes/additions 
-# Feb. 19th, 2019
-# Has support for train-test sequential splits instead of random sklearn splits
-# PCA, Scaling back and forth, Log(B^2) for temporal data (B(t) that is)
 
 import numpy as np
 import pandas as pd
