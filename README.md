@@ -1,6 +1,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fnauman/ML_alpha2/master)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fnauman/ML_alpha2/]
 
-Click the binder link to open the notebooks in binder and work with them in the cloud.
+Click the Binder or Colab link to open the notebooks in binder and work with them in the cloud.
 
 # Exploring helical dynamos with machine learning
 
