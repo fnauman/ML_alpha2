@@ -9,38 +9,27 @@
 
 <!--https://colab.research.google.com/github/fnauman/ML_alpha2/blob/master/vertical_profiles.ipynb -->
 
-(Click the Binder or Colab link to open the notebooks and work with them in the cloud.)
+(Click the *Binder* or *Colab* links to open the notebooks and work with them in the cloud.)
 
-This repository holds interactive python notebooks in relation to the "Exploring helical dynamos with machine learning" article. We explore various model fits for forced magnetohydrodynamic turbulence to understand the origin of large scale magnetic fields, a question of importance in many astrophysical contexts.
+This repository holds interactive python notebooks in relation to the *"Exploring helical dynamos with machine learning"* article. We explore various model fits for forced magnetohydrodynamic turbulence to understand the origin of large scale magnetic fields, a question of importance in many astrophysical contexts.
 
 ## How to get started
 
-1) Download the helically-forced turbulence simulation dataset from the links provided in the notebooks. Within the notebook, one can download a xy averaged profiles with a command like this 
-```
-!wget -O mfields_R15e3.npz  https://sid.erda.dk/public/archives/0cf0c2b6d34e20da8971304b06d8f913/pencil/alpha2/shock_k10_R15000_256_xyaver_alpha_eta/mfields.npz
-```
-2) Use numpy.load to read the file. For example, 
-```
-mf15 = np.load('mfields_R15e3.npz')
-list(mf15)
-# ['tres', Resistive time: 1/(kf^2 * eta) (divide tt by tres to get time array in Resistive times)
-   'Rm',   Turbulent magnetic Reynolds number: urms/(kf * eta)
-   'uave', RMS velocity: urms
-   'kf',   Forcing wavemode
-   'tt',   Time array (code units)
-   'bxm',  xy-averaged B_x field
-   'bym',  xy-averaged B_y field
-   'b2tot',xy-averaged B^2 TOTAL field
-   'u2tot',xy-averaged U^2 TOTAL field
-   'emfx', xy-averaged EMF_x field
-   'emfy', xy-averaged EMF_y field
-   'jxm',  xy-averaged J_x field
-   'jym']  xy-averaged J_y field
-```
-Each of the fields has dimension time x vertical coordinate.
+1) Download the helically-forced turbulence simulation dataset using the [download_data.ipynb](download_data.ipynb) notebook. 
+2) Install external python packages by running `pip install -r requirements.txt`
+3) Explore the data using the provided notebooks!
 
-3) install external python packages by running `pip install -r requirements.txt`
+## Content
 
+Currently the analysis consists of:
+- temporal and vertical visualizations
+   - [temporal_profiles.ipynb](temporal_profiles,ipynb)
+   - [vertical_profiles.ipynb](vertical_profiles.ipynb)
+- Random forests and LASSO:
+   - temporal averaging in [rfandlasso_temporal.ipynb](rfandlasso_temporal.ipynb)
+   - vertical averaging in [rfandlasso_vertical.ipynb](rfandlasso_vertical.ipynb)
+   - higher-order polynomial basis in [rfandlasso_vertical_poly.ipynb](rfandlasso_vertical_poly.ipynb)
+- Bayesian fits (with MCMC) in [mcmc.ipynb](mcmc.ipynb)
 
 
 ## Data 
@@ -63,4 +52,25 @@ Data links are provided [here](download_data.ipynb)
  R9e3 | 9000 | 50.16  | 89.55  | 0.056 
  R1e4* | 10000 | 55.79 | 99.40 | 0.056 
  R15e4* | 15000 | 82.12 | 149.1 | 0.055 
+ 
+ Data is stored in (compressed) numpy file format. You can load the data using `np.load()` and see different components with `list()`:
+ ```
+mf15 = np.load('mfields_R15e3.npz')
+list(mf15)
+# ['tres', Resistive time: 1/(kf^2 * eta) (divide tt by tres to get time array in Resistive times)
+   'Rm',   Turbulent magnetic Reynolds number: urms/(kf * eta)
+   'uave', RMS velocity: urms
+   'kf',   Forcing wavemode
+   'tt',   Time array (code units)
+   'bxm',  xy-averaged B_x field
+   'bym',  xy-averaged B_y field
+   'b2tot',xy-averaged B^2 TOTAL field
+   'u2tot',xy-averaged U^2 TOTAL field
+   'emfx', xy-averaged EMF_x field
+   'emfy', xy-averaged EMF_y field
+   'jxm',  xy-averaged J_x field
+   'jym']  xy-averaged J_y field
+```
+Each of the fields have a dimension of `time x vertical` coordinate.
+
 
