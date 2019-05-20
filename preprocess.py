@@ -1,6 +1,15 @@
+# May 9th, 2019
 # Normalize EMF,J and B with B_eq
 # Introduced read_mf_norm that replaces read_mf everywhere
 
+# Feb. 24th, 2019
+# EMF -> -EMF
+# EMF is really E in pc: vxb
+
+# Several changes/additions 
+# Feb. 19th, 2019
+# Has support for train-test sequential splits instead of random sklearn splits
+# PCA, Scaling back and forth, Log(B^2) for temporal data (B(t) that is)
 
 import numpy as np
 import pandas as pd
@@ -132,9 +141,6 @@ def scale_df(df):
   return pd.DataFrame(df_ss,columns=df.columns),scl
 
 def gen_df_zave_log(fname='mfields.npz',z1=128,z2=-1,verbose=True):
-  '''
-  name_conv: True refers to pencil code data: bxm,bym,jxm,jym,emfx,emfy
-  '''
 
   if verbose:
     print("Generating z averaged dataframe with z1: {} and z2: {}".format(z1,z2))
@@ -150,18 +156,12 @@ def gen_df_zave_log(fname='mfields.npz',z1=128,z2=-1,verbose=True):
         'Ey2l': np.log10(ave_z(Eym**2,zone=z1,ztwo=z2))        
         })
 
-def gen_df_poly_zave_log(fname='mfields.npz',z1=128,z2=-1,verbose=True,name_conv=True):
-  '''
-  name_conv: True refers to pencil code data: bxm,bym,jxm,jym,emfx,emfy
-  '''
+def gen_df_poly_zave_log(fname='mfields.npz',z1=128,z2=-1,verbose=True):
 
   if verbose:
     print("Generating z averaged dataframe with z1: {} and z2: {}".format(z1,z2))
   
-  if name_conv:
-    bxm,bym,jxm,jym,Exm,Eym = read_mf_norm(fname=fname)
-  else:
-    bxm,bym,jxm,jym,Exm,Eym = read_mf2(fname=fname)
+  bxm,bym,jxm,jym,Exm,Eym = read_mf_norm(fname=fname)
 
   ff = np.load(fname)
   beq2 = ff['uave']**2
@@ -201,7 +201,7 @@ def pca_df(df,n_components=2,verbose=True):
     return pd.DataFrame(df_ss,columns=["Vector 1", "Vector 2"]),pca
   else:
     return pd.DataFrame(df_ss),pca
-  
+
 def scale_df_Xy(X_train,y_train):
   # X_train must be a dataframe
   # X_train,y_train,_ = scale_df_Xy(X_train,y_train)
