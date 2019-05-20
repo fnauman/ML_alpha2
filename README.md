@@ -26,9 +26,10 @@ Currently the analysis consists of:
    - [temporal_profiles.ipynb](temporal_profiles,ipynb)
    - [vertical_profiles.ipynb](vertical_profiles.ipynb)
 - Random forests and LASSO:
-   - temporal averaging in [rfandlasso_temporal.ipynb](rfandlasso_temporal.ipynb)
-   - vertical averaging in [rfandlasso_vertical.ipynb](rfandlasso_vertical.ipynb)
-   - higher-order polynomial basis in [rfandlasso_vertical_poly.ipynb](rfandlasso_vertical_poly.ipynb)
+   - temporal profile fits in [rfandlasso_temporal_kinematic.ipynb](rfandlasso_temporal_kinematic.ipynb)
+   and [rfandlasso_temporal_saturation.ipynb](rfandlasso_temporal_saturation.ipynb)
+   - vertical profile fits in [rfandlasso_vertical_nopoly.ipynb](rfandlasso_vertical_nopoly.ipynb)
+   - vertical profile with polynomial basis in [rfandlasso_vertical_poly.ipynb](rfandlasso_vertical_poly.ipynb)
 - Bayesian fits (with MCMC) in [mcmc.ipynb](mcmc.ipynb)
 
 
@@ -70,7 +71,8 @@ list(mf15)
    'emfy', xy-averaged EMF_y field
    'jxm',  xy-averaged J_x field
    'jym']  xy-averaged J_y field
+   
+   z-array can be generated like this:
+   z_arr = np.linspace(0,2*np.pi,256)
 ```
 Each of the fields have a dimension of `time x vertical` coordinate.
-
-
