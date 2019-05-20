@@ -6,6 +6,6 @@ os
 pandas
 seaborn
 corner
-pydotplus
-collections
 joblib
+statsmodels
+minepy
