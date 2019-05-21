@@ -13,9 +13,9 @@
 
 [arxiv.org/abs/1905.08193](https://arxiv.org/abs/1905.08193)
 
-This repository holds interactive python notebooks in relation to the *"Exploring helical dynamos with machine learning"* article.
+Interactive python notebooks for *"Exploring helical dynamos with machine learning"*.
 
-*Summary*: We use regularized linear regression, random forests and Bayesian (Markov Chain Monte Carlo) fits for forced magnetohydrodynamic turbulence to compare it with large scale dynamo theory. We find that regularized linear regression performs the best, and this is due to the low dimensional organized dataset that we have.
+**Summary**: We use regularized linear regression, random forests and Bayesian (Markov Chain Monte Carlo) to select the appropriate model for the turbulent electromotive force that leads to large scale magnetic field generation. We find that regularized linear regression performs the best, and this is due to the low dimensional organized dataset (helically forced turbulence) that we have.
 
 ## How to get started
 
