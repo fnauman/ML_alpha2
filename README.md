@@ -13,7 +13,9 @@
 
 [arxiv.org/abs/1905.08193](https://arxiv.org/abs/1905.08193)
 
-This repository holds interactive python notebooks in relation to the *"Exploring helical dynamos with machine learning"* article. We explore various model fits for forced magnetohydrodynamic turbulence to understand the origin of large scale magnetic fields, a question of importance in many astrophysical contexts.
+This repository holds interactive python notebooks in relation to the *"Exploring helical dynamos with machine learning"* article.
+
+*Summary*: We use regularized linear regression, random forests and Bayesian (Markov Chain Monte Carlo) fits for forced magnetohydrodynamic turbulence to compare it with large scale dynamo theory. We find that regularized linear regression performs the best, and this is due to the low dimensional organized dataset that we have.
 
 ## How to get started
 
