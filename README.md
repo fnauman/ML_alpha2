@@ -11,6 +11,8 @@
 
 (Click the *Binder* or *Colab* links to open the notebooks and work with them in the cloud.)
 
+[arxiv.org/abs/1905.08193](https://arxiv.org/abs/1905.08193)
+
 This repository holds interactive python notebooks in relation to the *"Exploring helical dynamos with machine learning"* article. We explore various model fits for forced magnetohydrodynamic turbulence to understand the origin of large scale magnetic fields, a question of importance in many astrophysical contexts.
 
 ## How to get started
@@ -36,6 +38,8 @@ Currently the analysis consists of:
 ## Data 
 
 Data links are provided [here](download_data.ipynb)
+
+Some notebooks assume that the data is already downloaded and is in a folder "alpha2/". 
 
 ## Summary of runs reported in the paper
 
