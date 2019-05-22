@@ -30,16 +30,20 @@ Currently the analysis consists of:
    - [temporal_profiles.ipynb](temporal_profiles,ipynb)
    - [vertical_profiles.ipynb](vertical_profiles.ipynb)
 - Random forests and LASSO:
-   - temporal profile fits in [rfandlasso_temporal_kinematic.ipynb](rfandlasso_temporal_kinematic.ipynb)
-   and [rfandlasso_temporal_saturation.ipynb](rfandlasso_temporal_saturation.ipynb)
-   - vertical profile fits in [rfandlasso_vertical_nopoly.ipynb](rfandlasso_vertical_nopoly.ipynb)
-   - vertical profile with polynomial basis in [rfandlasso_vertical_poly.ipynb](rfandlasso_vertical_poly.ipynb)
+   - temporal profile fits 
+    - Kinematic: [rfandlasso_temporal_kinematic.ipynb](rfandlasso_temporal_kinematic.ipynb)
+    - Close to saturation: [rfandlasso_temporal_saturation.ipynb](rfandlasso_temporal_saturation.ipynb)
+   - vertical profile fits
+    - Linear basis: [rfandlasso_vertical_nopoly.ipynb](rfandlasso_vertical_nopoly.ipynb)
+    - Polynomial basis: [rfandlasso_vertical_poly.ipynb](rfandlasso_vertical_poly.ipynb)
 - Bayesian fits (with MCMC) in [mcmc.ipynb](mcmc.ipynb)
 
 
 ## Data 
 
 Data links are provided [here](download_data.ipynb)
+
+Simplest way to download files is 
 
 Some notebooks assume that the data is already downloaded and is in a folder "alpha2/". 
 
