@@ -31,11 +31,11 @@ Currently the analysis consists of:
    - [vertical_profiles.ipynb](vertical_profiles.ipynb)
 - Random forests and LASSO:
    - temporal profile fits 
-    - Kinematic: [rfandlasso_temporal_kinematic.ipynb](rfandlasso_temporal_kinematic.ipynb)
-    - Close to saturation: [rfandlasso_temporal_saturation.ipynb](rfandlasso_temporal_saturation.ipynb)
+     - Kinematic: [rfandlasso_temporal_kinematic.ipynb](rfandlasso_temporal_kinematic.ipynb)
+     - Close to saturation: [rfandlasso_temporal_saturation.ipynb](rfandlasso_temporal_saturation.ipynb)
    - vertical profile fits
-    - Linear basis: [rfandlasso_vertical_nopoly.ipynb](rfandlasso_vertical_nopoly.ipynb)
-    - Polynomial basis: [rfandlasso_vertical_poly.ipynb](rfandlasso_vertical_poly.ipynb)
+     - Linear basis: [rfandlasso_vertical_nopoly.ipynb](rfandlasso_vertical_nopoly.ipynb)
+     - Polynomial basis: [rfandlasso_vertical_poly.ipynb](rfandlasso_vertical_poly.ipynb)
 - Bayesian fits (with MCMC) in [mcmc.ipynb](mcmc.ipynb)
 
 
@@ -43,7 +43,14 @@ Currently the analysis consists of:
 
 Data links are provided [here](download_data.ipynb)
 
-Simplest way to download files is 
+Simplest way to download files is:
+
+```
+from preprocess import fetch_data
+fetch_data() # by default downloads only 4 data files
+# Use fetch_data(all=True) to download the entire dataset in the folder alpha2
+
+```
 
 Some notebooks assume that the data is already downloaded and is in a folder "alpha2/". 
 
