@@ -13,7 +13,7 @@
 
 [arxiv.org/abs/1905.08193](https://arxiv.org/abs/1905.08193)
 
-**Authors**: [Farrukh Nauman](https://fnauman.github.io/) and [Joonas Nättilä](http://natj.github.io/)
+**Authors**: [Farrukh Nauman](fnauman.github.io/) and [Joonas Nättilä](http://natj.github.io/)
 
 **Summary**: We use regularized linear regression, random forests and Bayesian (Markov Chain Monte Carlo) to select the appropriate model for the turbulent electromotive force that feeds large scale magnetic field growth. We find that regularized linear regression performs the best, and this is due to the low dimensional organized dataset (helically forced turbulence leads to high signal to noise ratio) considered here.
 
@@ -97,8 +97,8 @@ list(mf15)
 Each of the fields have a dimension of `time x vertical` coordinate.
 
 
-## Reference
-You can cite this as
+## Citing this work
+If you find this work useful, please cite this as:
 ```
 @ARTICLE{2019arXiv190508193N,
        author = {{Nauman}, Farrukh and {N{\"a}ttil{\"a}}, Joonas},
