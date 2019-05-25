@@ -15,7 +15,7 @@
 
 Interactive python notebooks for *"Exploring helical dynamos with machine learning"*.
 
-**Summary**: We use regularized linear regression, random forests and Bayesian (Markov Chain Monte Carlo) to select the appropriate model for the turbulent electromotive force that leads to large scale magnetic field generation. We find that regularized linear regression performs the best, and this is due to the low dimensional organized dataset (helically forced turbulence) that we have.
+**Summary**: We use regularized linear regression, random forests and Bayesian (Markov Chain Monte Carlo) to select the appropriate model for the turbulent electromotive force that feeds large scale magnetic field growth. We find that regularized linear regression performs the best, and this is due to the low dimensional organized dataset (helically forced turbulence leads to high signal to noise ratio) considered here.
 
 ## How to get started
 
@@ -53,6 +53,8 @@ fetch_data() # by default downloads only 4 data files
 ```
 
 Some notebooks assume that the data is already downloaded and is in a folder "alpha2/". 
+
+If you have trouble running the code, please raise an issue.
 
 ## Summary of runs reported in the paper
 
